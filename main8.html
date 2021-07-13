@@ -15,6 +15,15 @@
       <h1>{{headline}}</h1>
       
     </div>
+    <!--import file-->
+    <input type="file" ref="myFile" @change="selectedFile"> 
+    <input type="submit" value="Upload File" />
+    <div v-if="inputroute">
+      <h3>Data Preview</h3>
+     
+      {{inputroute}}
+    </div>
+     <!---->
     <div class="polygonarray2jsonstring">
     {{polygonarray2json}}
     </div>

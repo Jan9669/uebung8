@@ -7,7 +7,45 @@ var app = new Vue({
      predefinedroute: calculate(route, polygon),
      polygonarray2json: arraytogeojson(polygon),
      routearray2json: arraytogeojson(route),
+     //
+     inputroute:null
+     //
     },  
+    //
+    methods:{
+      selectedFile() {
+        console.log('selected a file');
+        console.log(this.$refs.myFile.files[0]);
+        
+        let file = this.$refs.myFile.files[0];
+        if(!file || file.type !== 'application/json') return;
+        
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        
+        reader.onload =  evt => {
+          let text = evt.target.result;
+          try {
+            //this.inputroute...
+            this.input.route = JSON.parse(text);
+
+            //
+            //new array 
+
+            //
+
+          } catch(e) {
+            alert("Sorry, your file doesn't appear to be valid JSON data.");
+          }
+        }
+        
+        reader.onerror = evt => {
+          console.error(evt);
+        }
+        
+      }
+    }
+    //
 })
 
 
