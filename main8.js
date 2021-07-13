@@ -27,7 +27,7 @@ var app = new Vue({
           let text = evt.target.result;
           try {
             //this.inputroute...
-            this.input.route = JSON.parse(text);
+            this.inputroute = JSON.parse(text);
 
             //
             //new array 
